@@ -16,6 +16,9 @@ const DetailProduct = (props) => {
     detailProductImgIndex,
     setDetailProductImgIndex,
     handleAddProductCart,
+    detailProductQuantity,
+    handleAddDetailProductCart,
+    handleRemoveDetailProductCart,
   } = props;
 
   // const routeParams = useParams();
@@ -88,12 +91,26 @@ const DetailProduct = (props) => {
               </p>
             </div>
             <div className="detail-right-option">
-              <div className="detail-right-amount">Amount</div>
+              <div className="detail-right-amount">
+                <button
+                  className="add-quantity-btn"
+                  onClick={(e) => handleAddDetailProductCart()}
+                >
+                  +
+                </button>
+                <p className="quantity-input">{detailProductQuantity}</p>
+                <button
+                  className="remove-quantity-btn"
+                  onClick={(e) => handleRemoveDetailProductCart()}
+                >
+                  -
+                </button>
+              </div>
               <button
                 className="add-to-cart-btn"
                 onClick={(e) => handleAddProductCart(e, detailProduct)}
               >
-                Add to cart
+                Add To Cart
               </button>
             </div>
           </div>

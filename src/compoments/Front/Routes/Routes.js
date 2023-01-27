@@ -20,6 +20,9 @@ const Routes = (props) => {
     handleAddProductCart,
     productCart,
     handleClearProductCart,
+    detailProductQuantity,
+    handleAddDetailProductCart,
+    handleRemoveDetailProductCart,
   } = props;
 
   //   console.log("Routes check", productItems);
@@ -53,6 +56,9 @@ const Routes = (props) => {
           detailProductImgIndex={detailProductImgIndex}
           setDetailProductImgIndex={setDetailProductImgIndex}
           handleAddProductCart={handleAddProductCart}
+          detailProductQuantity={detailProductQuantity}
+          handleAddDetailProductCart={handleAddDetailProductCart}
+          handleRemoveDetailProductCart={handleRemoveDetailProductCart}
         />
       </Route>
       <Route path="/">

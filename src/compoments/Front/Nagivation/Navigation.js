@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.scss";
 
-const Nagivation = () => {
+const Nagivation = (props) => {
+  const { navProductQuantity } = props;
   return (
     <div className="nav">
       <div className="nav-top">
@@ -22,7 +23,7 @@ const Nagivation = () => {
           <NavLink to="/cart">
             <i className="fa-solid fa-basket-shopping nav-top-right-icon"></i>
           </NavLink>
-          <p className="nav-top-right-title">Cart</p>
+          <p className="nav-top-right-title">Cart: {navProductQuantity}</p>
         </div>
       </div>
       <div className="nav-bot">
