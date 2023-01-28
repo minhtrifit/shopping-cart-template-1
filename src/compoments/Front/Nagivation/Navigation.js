@@ -3,7 +3,12 @@ import { NavLink } from "react-router-dom";
 import "./Navigation.scss";
 
 const Nagivation = (props) => {
-  const { navProductQuantity } = props;
+  const {
+    navProductQuantity,
+    searchInput,
+    handleInputSearch,
+    handleClickSearch,
+  } = props;
   return (
     <div className="nav">
       <div className="nav-top">
@@ -16,8 +21,13 @@ const Nagivation = (props) => {
             type="text"
             className="nav-top-mid-input"
             placeholder="Search here..."
+            value={searchInput}
+            onChange={(e) => handleInputSearch(e)}
           />
-          <i className="fa-solid fa-magnifying-glass nav-top-mid-btn"></i>
+          <i
+            className="fa-solid fa-magnifying-glass nav-top-mid-btn"
+            onClick={(e) => handleClickSearch(e)}
+          ></i>
         </div>
         <div className="nav-top-right">
           <NavLink to="/cart">

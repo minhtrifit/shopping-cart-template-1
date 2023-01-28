@@ -17,6 +17,7 @@ function App() {
   const [productCart, setProductCart] = useState([]); // product cart list
   const [detailProductQuantity, setDetailProductQuantity] = useState(1); // detail product cart quantity
   const [navProductQuantity, setNavProductQuantity] = useState(0); // Navigation cart quantity
+  const [searchInput, setSearchInput] = useState(""); // Navigation input search
 
   const handleDetailProduct = (e, item) => {
     setProductItems(data); // Comment if error
@@ -85,10 +86,30 @@ function App() {
     }
   };
 
+  const handleInputSearch = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleClickSearch = (e) => {
+    if (searchInput === "") {
+      setProductItems(data);
+    } else {
+      const list = productItems.filter((item) =>
+        item.name.toUpperCase().includes(searchInput.toUpperCase())
+      );
+      setProductItems(list);
+    }
+  };
+
   return (
     <div className="App">
       <Router>
-        <Nagivation navProductQuantity={navProductQuantity} />
+        <Nagivation
+          navProductQuantity={navProductQuantity}
+          searchInput={searchInput}
+          handleInputSearch={handleInputSearch}
+          handleClickSearch={handleClickSearch}
+        />
         <Routes
           productItems={productItems}
           handleDetailProduct={handleDetailProduct}
